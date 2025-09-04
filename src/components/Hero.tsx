@@ -118,7 +118,8 @@ function Hero() {
   }
 
   function handleMiniVideoClick() {
-    setCurrentIndex(hoverIndex);
+    const nextIndex = hoverIndex; // vídeo que será exibido
+    setCurrentIndex(nextIndex);   // fundo também recebe esse vídeo
     setHoverIndex((prev) => (prev < totalVideos ? prev + 1 : 1));
     setHasClicked(true);
   }
@@ -185,7 +186,7 @@ function Hero() {
           }}
         >
           <video
-            src={getVideoSrc(hoverIndex)}
+            src={getVideoSrc(currentIndex)}
             className="w-full h-full object-cover"
             loop
             muted
