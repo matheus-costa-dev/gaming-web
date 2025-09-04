@@ -7,10 +7,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 type animatedTitle = {
     title: string,
-    containerClass?: string
+    containerClass?: string,
+    sectionId?: string
 }
 
-function AnimatedTitle({ title, containerClass }: animatedTitle) {
+function AnimatedTitle({ title, containerClass, sectionId }: animatedTitle) {
     // Corrigido: containerRef em vez de conatinerRef
     const containerRef = useRef(null);
 
@@ -39,6 +40,7 @@ function AnimatedTitle({ title, containerClass }: animatedTitle) {
 
     return (
         <div 
+            id={sectionId}
             ref={containerRef} // Adicionado: ref no container
             className={`flex flex-col gap-1 text-7xl uppercase leading-[.8] text-white sm:px-32 md:text-[6rem] ${containerClass}`}
         >
